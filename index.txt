@@ -1,0 +1,28 @@
+Mongoose(ODM for MongoDB)
+Mongoose is an ODM (Object Data Modeling) library for MongoDB and Node.js.
+We can also think of it like a “translator” between our JavaScript code and the MongoDB database.
+What it does:
+- Defines Schemas (the structure of your data).
+- Creates Models (blueprints to create, read, update, delete data).
+- Handles database queries in a simpler way.
+Why we use it:
+- Enforces structure in MongoDB (which is normally schema-less).
+- Reduces database errors.
+- Lets you use JavaScript objects directly with MongoDB.
+
+Dotenv (Environment Variables)
+dotenv is a package that loads environment variables from a ".env" file into process.env.
+Why we use it:
+- Keeps sensitive information (API keys, DB passwords) out of your code.
+- Allows easy switching between development and production settings.
+- Avoids committing secrets to GitHub.
+
+PS: your ".env" file should always go into your .gitignore file.
+- Instead of pushing ".env", create an example file: ".env.example". 
+- Inside, put only the variable names, not the values. That way, teammates know what variables to create 
+without exposing the actual values.
+
+Summary:
+Express = Helps us quickly build web servers and APIs.
+Mongoose = Helps you connect and interact with MongoDB easily using JavaScript objects.
+Dotenv = Helps you store and access secret values without hardcoding them.
