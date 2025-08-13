@@ -23,11 +23,48 @@ pageRouter.post("/students", async (req, res) => {
   }
 });
 
-// Route to get all students
+// READ ALL -  to get all students
 pageRouter.get("/students", async (req, res) => {
   try {
     const students = await Student.find();
     res.json(students);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+// READ ONE - Get a student by ID
+pageRouter.get("/students/:id", async (req, res) => {
+  try {
+    const student = await Student.findById(req.params.id);
+    if(!student) return res.status(404).json({message:"Student not found"});
+    res.json(student);
+  } catch (error) {
+    res.status(500).json({error: error.message});
+  }
+});
+
+// UPDATE - Edit student by ID
+pageRouter.put("/students/:id", async (req, res) => {
+  try {
+    const student = await Student.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      // return updated doc & validate
+      { new: true, runValidators: true } 
+    );
+    if (!student) return res.status(404).json({ message: "Student not found" });
+    res.json(student);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// DELETE - Remove a student by ID
+pageRouter.delete("/students/:id", async (req, res) => {
+  try {
+    const student = await Student.findByIdAndDelete(req.params.id);
+    if (!student) return res.status(404).json({ message: "Student not found" });
+    res.json({ message: "Student deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
