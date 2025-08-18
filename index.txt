@@ -26,3 +26,23 @@ Summary:
 Express = Helps us quickly build web servers and APIs.
 Mongoose = Helps you connect and interact with MongoDB easily using JavaScript objects.
 Dotenv = Helps you store and access secret values without hardcoding them.
+
+User Authentication:
+User authentication is a fundamental aspect of web development, acting as the digital gatekeeper 
+that verifies a user's identity.  It's the process of confirming who a user is they claim to be. 
+In web applications, this usually involves a username or email and a password that are compared against 
+stored credentials. A successful match grants the user access to protected parts of the application.
+
+There are two key components you'll use for this: JWT (JSON Web Tokens) and bcrypt.
+- JWT (JSON Web Tokens): Think of a JWT as a secure, digitally signed ID card for a user. After a user logs in, the server issues a token 
+that contains information about the user (e.g., their ID, username, and role). The server signs this token with a secret key, so it can 
+trust the information inside it. The user then includes this token with future requests to access protected resources. 
+The server can verify the token's authenticity without needing to constantly query the database.
+
+- bcrypt: This is a cryptographic hashing library designed to securely hash passwords. A hash is a one-way function, meaning you can convert 
+a password into a hashed string, but you can't reverse the process to get the original password back. When a user registers, you don't 
+store their plain-text password. Instead, you hash it with bcrypt and store the hash. When they log in, you hash their provided password 
+and compare the new hash to the one stored in the database. This protects user passwords even if your database is compromised.
+
+We would need to install bcrypt & jsonwebtoken:
+npm install bcrypt jsonwebtoken
