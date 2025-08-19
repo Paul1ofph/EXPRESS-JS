@@ -43,4 +43,4 @@ studentSchema.pre('save', async function(next) {
 // Create the model (students collection)
 const Student = mongoose.model("Student", studentSchema);
 
-export default Student;
+// export default Student;

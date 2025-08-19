@@ -7,6 +7,7 @@ import connectDB from "./config/db.js";
 
 // Load .env variables
 dotenv.config();
+// Connect to the MongoDB database
 connectDB();
 
 const fileName = fileURLToPath(import.meta.url);
@@ -23,6 +24,7 @@ app.use(express.static(join(dirName, "public")));
 // Routes for HTML Pages
 app.use("/", pageRouter);
 
-app.listen(3000, () => {
-  console.log("Server is up!");
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server is up! @ localhost:${PORT}`);
 });

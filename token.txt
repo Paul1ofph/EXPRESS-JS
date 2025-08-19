@@ -1,0 +1,26 @@
+{
+   "email": "janedoe@mail.com",
+   "password": "hello456"
+}
+token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTQ2YzNkYmNlZGI3NDc0YjQwNTBkYSIsImlhdCI6MTc1NTYwNjA3OCwiZXhwIjoxNzU1NjA5Njc4fQ.DQMxafgVjiO0Mv1_7_q_MF5ekI_PKcKh8RsnfGWbuMI"
+
+login token:
+{
+    "_id": "68a46c3dbcedb7474b4050da",
+    "email": "janedoe@mail.com",
+    "role": "student",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTQ2YzNkYmNlZGI3NDc0YjQwNTBkYSIsImlhdCI6MTc1NTYwNjQzMiwiZXhwIjoxNzU1NjEwMDMyfQ.bvubtYeM0XylZFd0U3uZaBc3np0S1_U1zp-wyYBhs_o"
+}
+
+Admin:
+{
+  "email": "admin@example.com",
+  "password": "adminpassword",
+  "role": "admin"
+}
+{
+    "_id": "68a46f51bcedb7474b4050de",
+    "email": "admin@example.com",
+    "role": "student",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTQ2ZjUxYmNlZGI3NDc0YjQwNTBkZSIsImlhdCI6MTc1NTYwNjg2NiwiZXhwIjoxNzU1NjEwNDY2fQ.n8TeEcrcScOPTKWdvbwBqJ_ZwlGxs9RHNhS7MH7j2Nc"
+}
