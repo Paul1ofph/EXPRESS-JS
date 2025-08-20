@@ -1,6 +1,7 @@
 import express from "express";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import protect from "../middleware/authMiddleware.js";
 import {
   registerStudent,
   loginStudent,
@@ -26,10 +27,10 @@ pageRouter.post("/register", registerStudent);
 pageRouter.post("/login", loginStudent);
 
 // Student routes
-// pageRouter.post("/students", createStudent);
-pageRouter.get("/students", getStudents);
-pageRouter.get("/students/:id", getStudentById);
-pageRouter.put("/students/:id", updateStudent);
-pageRouter.delete("/students/:id", deleteStudent);
+// Protected routes (middleware is applied)
+pageRouter.get("/students", protect, getStudents);
+pageRouter.get("/students/:id", protect, getStudentById);
+pageRouter.put("/students/:id", protect, updateStudent);
+pageRouter.delete("/students/:id", protect, deleteStudent);
 
 export default pageRouter;

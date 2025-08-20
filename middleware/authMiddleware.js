@@ -23,14 +23,12 @@ const protect = async (req, res, next) => {
       // Call the next middleware or route handler
       next();
     } catch (error) {
-      // If verification fails (e.g., token expired or invalid), send a 401 Unauthorized response
-      res.status(401).json({ message: "Not authorized, token failed" });
+      // If verification fails, stop the execution by returning the response
+      return res.status(401).json({ message: "Not authorized, token failed" });
     }
-  }
-
-  // If no token is provided in the header, send a 401 Unauthorized response
-  if (!token) {
-    res.status(401).json({ message: "Not authorized, no token" });
+  } else {
+    // If no token is provided in the header, stop the execution and send a 401 Unauthorized response
+    return res.status(401).json({ message: "Not authorized, no token" });
   }
 };
 

@@ -10,6 +10,8 @@ const studentSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
       trim: true,
+      // Regex to validate the email format
+      match: [/.+@.+\..+/, "Please enter a valid email address"],
     },
     password: {
       type: String,
