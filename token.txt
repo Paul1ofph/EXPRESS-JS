@@ -1,12 +1,36 @@
-Admin 3:
 {
-  "email": "admin3@example.com",
-  "password": "adminpassword",
-  "role": "admin"
+    "email": "admin@gmail.com",
+    "password": "admin12345"
 }
 {
-    "_id": "68a5c0d1c6eec965cf9ec76d",
-    "email": "admin3@example.com",
+    "_id": "68a9f5f1ae282eb4280d9099",
+    "email": "admin@gmail.com",
     "role": "admin",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTVjMGQxYzZlZWM5NjVjZjllYzc2ZCIsImlhdCI6MTc1NTY5NTIyMCwiZXhwIjoxNzU1Njk4ODIwfQ.B2aWcM3Zxowtg05KXQ50Rk670rLBZRoKy1vOE9GhR0w"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTlmNWYxYWUyODJlYjQyODBkOTA5OSIsImlhdCI6MTc1NTk3NTE1NywiZXhwIjoxNzU1OTc4NzU3fQ.UnEwI1c_DUv7C_fPkhwdYJ2GMWIVD41Dum7OF_kI5NQ"
+}
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTVjZmNmN2Y3MTc2ZDdmZjNjY2M0YSIsImlhdCI6MTc1NTk3MDI5MiwiZXhwIjoxNzU1OTczODkyfQ.xVwQD5FhNRw2V25XkgcpoACyYMfdC4p45KOCitHwTII
+
+
+{
+    "email": "superAdmin@gmail.com",
+    "password": "superadmin123"
+}
+
+{
+    "_id": "68a9fedf2ac0207891ce2a40",
+    "email": "superadmin@gmail.com",
+    "role": "superadmin",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTlmZWRmMmFjMDIwNzg5MWNlMmE0MCIsImlhdCI6MTc1NTk3NDk4NSwiZXhwIjoxNzU1OTc4NTg1fQ.jvu3In3MEH02ozrikLAxU67qyxVBg83gdLnGFQmkWes"
+}
+
+{
+    "email": "chizzy12@gmail.com",
+    "password": "12345678"
+}
+{
+    "_id": "68aa10d611a42c1eb7f55818",
+    "email": "chizzy12@gmail.com",
+    "role": "student",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YWExMGQ2MTFhNDJjMWViN2Y1NTgxOCIsImlhdCI6MTc1NTk3NTg5NSwiZXhwIjoxNzU1OTc5NDk1fQ.qJjZnMvUmlbVwMT6Q0mZh6SLBs2Gqwf9Z33v41Wye7c"
 }

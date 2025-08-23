@@ -12,6 +12,12 @@ import {
   updateStudent,
   deleteStudent,
 } from "../controllers/myStudentController.js";
+import {
+  loginadmin,
+  registerAdmin,
+} from "../controllers/authAdminController.js";
+import { loginsuperadmin, registerSuperAdmin } from "../controllers/authSuperAdminController.js";
+import { getAllAdmins, getAllStudents, getAllUsers } from "../controllers/superAdminController.js";
 
 const fileName = fileURLToPath(import.meta.url);
 const dirName = dirname(fileName);
@@ -25,9 +31,20 @@ pageRouter.get("/", (req, res) => {
 // Public authentication routes
 pageRouter.post("/register", registerStudent);
 pageRouter.post("/login", loginStudent);
+// Admin Routes
+pageRouter.post("/registeradmin", registerAdmin);
+pageRouter.post("/loginadmin", loginadmin);
+// Super Admin Routes
+pageRouter.post("/registersuperadmin", registerSuperAdmin);
+pageRouter.post("/loginsuperadmin", loginsuperadmin);
 
 // Student routes
 // Protected routes (middleware is applied)
+// Super Admin Routes
+pageRouter.get("/allusers", protect, getAllUsers);
+pageRouter.get("/admins", protect, getAllAdmins);
+// pageRouter.get("/students", protect, getAllStudents);
+// Admin Routes
 pageRouter.get("/students", protect, getStudents);
 pageRouter.get("/students/:id", protect, getStudentById);
 pageRouter.put("/students/:id", protect, updateStudent);
