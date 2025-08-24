@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
-// Define the blueprint of a Student Information
+// Define the blueprint of a Admin Information
 const adminSchema = new mongoose.Schema(
   {
     email: {
@@ -20,7 +20,7 @@ const adminSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["student", "admin"],
+      enum: ["student", "admin", "superadmin"],
       default: "admin",
     },
   },

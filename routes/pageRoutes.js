@@ -5,19 +5,27 @@ import protect from "../middleware/authMiddleware.js";
 import {
   registerStudent,
   loginStudent,
-} from "../controllers/authController.js";
+} from "../controllers/studentControllers/authStudentController.js";
 import {
   getStudents,
   getStudentById,
   updateStudent,
   deleteStudent,
-} from "../controllers/myStudentController.js";
+} from "../controllers/studentControllers/myStudentController.js";
 import {
   loginadmin,
   registerAdmin,
-} from "../controllers/authAdminController.js";
-import { loginsuperadmin, registerSuperAdmin } from "../controllers/authSuperAdminController.js";
-import { getAllAdmins, getAllStudents, getAllUsers } from "../controllers/superAdminController.js";
+} from "../controllers/adminControllers/authAdminController.js";
+import {
+  loginsuperadmin,
+  registerSuperAdmin,
+} from "../controllers/superAdminControllers/authSuperAdminController.js";
+import {
+  getAllAdmins,
+  getAllStudents,
+  getAllUsers,
+} from "../controllers/superAdminControllers/superAdminController.js";
+import { deleteAdmin, updateAdmin } from "../controllers/adminControllers/adminController.js";
 
 const fileName = fileURLToPath(import.meta.url);
 const dirName = dirname(fileName);
@@ -49,5 +57,10 @@ pageRouter.get("/students", protect, getStudents);
 pageRouter.get("/students/:id", protect, getStudentById);
 pageRouter.put("/students/:id", protect, updateStudent);
 pageRouter.delete("/students/:id", protect, deleteStudent);
+pageRouter.get("/admins/:id", protect, updateAdmin);
+pageRouter.put("/admins/:id", protect, updateAdmin);
+pageRouter.delete("/admins/:id", protect, deleteAdmin);
+
+// pageRouter.delete("/students/:id", protect, deleteStudent);
 
 export default pageRouter;

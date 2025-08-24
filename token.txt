@@ -1,12 +1,12 @@
 {
-    "email": "admin@gmail.com",
-    "password": "admin12345"
+    "email": "admin123@gmail.com",
+    "password": "admin12345678"
 }
 {
     "_id": "68a9f5f1ae282eb4280d9099",
     "email": "admin@gmail.com",
     "role": "admin",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTlmNWYxYWUyODJlYjQyODBkOTA5OSIsImlhdCI6MTc1NTk3NTE1NywiZXhwIjoxNzU1OTc4NzU3fQ.UnEwI1c_DUv7C_fPkhwdYJ2GMWIVD41Dum7OF_kI5NQ"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTlmNWYxYWUyODJlYjQyODBkOTA5OSIsImlhdCI6MTc1NjAyNTY5MSwiZXhwIjoxNzU2MDI5MjkxfQ.qWcOhpGRETtZkzrRf3-KfECEtpGsQ19qMCBYjrW5rhQ"
 }
 
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTVjZmNmN2Y3MTc2ZDdmZjNjY2M0YSIsImlhdCI6MTc1NTk3MDI5MiwiZXhwIjoxNzU1OTczODkyfQ.xVwQD5FhNRw2V25XkgcpoACyYMfdC4p45KOCitHwTII
@@ -21,7 +21,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTVjZmNmN2Y3MTc2ZDdmZjNjY2M0YSI
     "_id": "68a9fedf2ac0207891ce2a40",
     "email": "superadmin@gmail.com",
     "role": "superadmin",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTlmZWRmMmFjMDIwNzg5MWNlMmE0MCIsImlhdCI6MTc1NTk3NDk4NSwiZXhwIjoxNzU1OTc4NTg1fQ.jvu3In3MEH02ozrikLAxU67qyxVBg83gdLnGFQmkWes"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTlmZWRmMmFjMDIwNzg5MWNlMmE0MCIsImlhdCI6MTc1NjAyNzgzOCwiZXhwIjoxNzU2MDMxNDM4fQ._eworghT3R7QIjj2AXpLMlnSwJxGkbfLL9fglJFEJjw"
 }
 
 {
@@ -34,3 +34,17 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTVjZmNmN2Y3MTc2ZDdmZjNjY2M0YSI
     "role": "student",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YWExMGQ2MTFhNDJjMWViN2Y1NTgxOCIsImlhdCI6MTc1NTk3NTg5NSwiZXhwIjoxNzU1OTc5NDk1fQ.qJjZnMvUmlbVwMT6Q0mZh6SLBs2Gqwf9Z33v41Wye7c"
 }
+
+
+{
+    "email": "admin1@gmail.com",
+    "password": "admin12345678"
+}
+
+{
+    "_id": "68aad640f0b7e151d5063587",
+    "email": "admin1@gmail.com",
+    "role": "admin",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YWFkNjQwZjBiN2UxNTFkNTA2MzU4NyIsImlhdCI6MTc1NjAyNjQzMywiZXhwIjoxNzU2MDMwMDMzfQ.S6pScPAKrX4v50FvOq-BGLaWebsQNPMhxJViCbCqcQA"
+}
+

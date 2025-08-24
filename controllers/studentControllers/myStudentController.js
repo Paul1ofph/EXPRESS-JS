@@ -1,4 +1,4 @@
-import Student from "../model/studentSchema.js";
+import Student from "../../model/studentSchema.js";
 
 // Get users depending on role
 export const getStudents = async (req, res) => {
@@ -17,7 +17,6 @@ export const getStudents = async (req, res) => {
 
     // Otherwise deny
     return res.status(403).json({ message: "Access denied." });
-
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -30,10 +29,7 @@ export const getStudentById = async (req, res) => {
       return res.status(404).json({ message: "Student not found" });
     }
     // Check if the user is an admin or is requesting their own profile
-    if (
-      req.admin && req.superAdmin &&
-      req.student
-    ) {
+    if (req.admin && req.superAdmin && req.student) {
       return res.status(403).json({
         message: "Access denied. You can only view your own profile.",
       });
@@ -49,10 +45,7 @@ export const updateStudent = async (req, res) => {
   try {
     const studentIdToUpdate = req.params.id;
     // Ensure non-admins can only update their own profile
-    if (
-      req.admin && req.superAdmin &&
-      req.student
-    ) {
+    if (req.admin && req.superAdmin && req.student) {
       return res.status(403).json({
         message: "Access denied. You can only update your own profile.",
       });
@@ -76,10 +69,7 @@ export const deleteStudent = async (req, res) => {
   try {
     const studentIdToDelete = req.params.id;
     // Ensure non-admins can only delete their own profile
-    if (
-      req.admin && req.superAdmin &&
-      req.student
-    ) {
+    if (req.admin && req.superAdmin && req.student) {
       return res.status(403).json({
         message: "Access denied. You can only delete your own profile.",
       });

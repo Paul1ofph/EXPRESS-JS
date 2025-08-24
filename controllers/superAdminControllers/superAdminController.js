@@ -1,11 +1,13 @@
-import Admin from "../model/adminSchema.js";
-import Student from "../model/studentSchema.js";
+import Admin from "../../model/adminSchema.js";
+import Student from "../../model/studentSchema.js";
 
 // Fetch both students and admins
 export const getAllUsers = async (req, res) => {
   try {
     if (!req.superAdmin) {
-      return res.status(403).json({ message: "Access denied. SuperAdmins only." });
+      return res
+        .status(403)
+        .json({ message: "Access denied. SuperAdmins only." });
     }
 
     const students = await Student.find().select("-password");
@@ -21,7 +23,9 @@ export const getAllUsers = async (req, res) => {
 export const getAllStudents = async (req, res) => {
   try {
     if (!req.superAdmin) {
-      return res.status(403).json({ message: "Access denied. SuperAdmins only." });
+      return res
+        .status(403)
+        .json({ message: "Access denied. SuperAdmins only." });
     }
 
     const students = await Student.find().select("-password");
@@ -35,7 +39,9 @@ export const getAllStudents = async (req, res) => {
 export const getAllAdmins = async (req, res) => {
   try {
     if (!req.superAdmin) {
-      return res.status(403).json({ message: "Access denied. SuperAdmins only." });
+      return res
+        .status(403)
+        .json({ message: "Access denied. SuperAdmins only." });
     }
 
     const admins = await Admin.find().select("-password");

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
-// Define the blueprint of a Student Information
+// Define the blueprint of a SuperAdmin Information
 const superAdminSchema = new mongoose.Schema(
   {
     email: {
