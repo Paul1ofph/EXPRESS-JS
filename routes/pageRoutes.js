@@ -21,11 +21,14 @@ import {
   registerSuperAdmin,
 } from "../controllers/superAdminControllers/authSuperAdminController.js";
 import {
+  deleteSuperAdmin,
   getAllAdmins,
-  getAllStudents,
+  getAllSuperAdmins,
   getAllUsers,
+  getSuperAdminById,
+  updateSuperAdminById,
 } from "../controllers/superAdminControllers/superAdminController.js";
-import { deleteAdmin, updateAdmin } from "../controllers/adminControllers/adminController.js";
+import { deleteAdmin, getAdminById, updateAdmin } from "../controllers/adminControllers/adminController.js";
 
 const fileName = fileURLToPath(import.meta.url);
 const dirName = dirname(fileName);
@@ -51,16 +54,19 @@ pageRouter.post("/loginsuperadmin", loginsuperadmin);
 // Super Admin Routes
 pageRouter.get("/allusers", protect, getAllUsers);
 pageRouter.get("/admins", protect, getAllAdmins);
-// pageRouter.get("/students", protect, getAllStudents);
-// Admin Routes
+pageRouter.get("/superadmins", protect, getAllSuperAdmins);
+pageRouter.get("/superadmins/:id", protect, getSuperAdminById);
+pageRouter.put("/superadmins/:id", protect, updateSuperAdminById);
+pageRouter.delete("/superadmins/:id", protect, deleteSuperAdmin);
+// Student Routes
 pageRouter.get("/students", protect, getStudents);
 pageRouter.get("/students/:id", protect, getStudentById);
 pageRouter.put("/students/:id", protect, updateStudent);
 pageRouter.delete("/students/:id", protect, deleteStudent);
-pageRouter.get("/admins/:id", protect, updateAdmin);
+// Admin routes
+pageRouter.get("/admins/:id", protect, getAdminById);
 pageRouter.put("/admins/:id", protect, updateAdmin);
 pageRouter.delete("/admins/:id", protect, deleteAdmin);
 
-// pageRouter.delete("/students/:id", protect, deleteStudent);
 
 export default pageRouter;

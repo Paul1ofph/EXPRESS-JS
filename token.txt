@@ -48,3 +48,18 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTVjZmNmN2Y3MTc2ZDdmZjNjY2M0YSI
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YWFkNjQwZjBiN2UxNTFkNTA2MzU4NyIsImlhdCI6MTc1NjAyNjQzMywiZXhwIjoxNzU2MDMwMDMzfQ.S6pScPAKrX4v50FvOq-BGLaWebsQNPMhxJViCbCqcQA"
 }
 
+{
+    "email": "Admin@gmail.com",
+    "password": "admin123456"
+}
+
+{
+    "email": "SuperAdmin1@gmail.com",
+    "password": "superadmin123456"
+}
+{
+    "_id": "68ab1f366f75b5350c790a78",
+    "email": "superadmin1@gmail.com",
+    "role": "superadmin",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YWIxZjM2NmY3NWI1MzUwYzc5MGE3OCIsImlhdCI6MTc1NjA0NTExMCwiZXhwIjoxNzU2MDQ4NzEwfQ.cksWtdHlmGhaCcPcImyf6mzXrkLIjfWwcYZI6JDzcy8"
+}

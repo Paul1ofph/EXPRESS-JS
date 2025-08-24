@@ -1,6 +1,24 @@
 import Admin from "../../model/adminSchema.js";
 
 
+// Get an admin by ID
+export const getAdminById = async (req, res) => {
+  try {
+    const admin = await Admin.findById(req.params.id).select("-password");
+    if (!admin) {
+      return res.status(404).json({ message: "Admin not found" });
+    }
+    // Check if the user is a superadmin or is requesting their own profile
+    if (req.admin && req.superAdmin) {
+      return res.status(403).json({
+        message: "Access denied. You can only view your own profile.",
+      });
+    }
+    res.json(admin);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 // Update a admin by ID
 export const updateAdmin = async (req, res) => {
   try {
