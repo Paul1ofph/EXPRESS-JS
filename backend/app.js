@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import pageRouter from "./routes/pageRoutes.js";
 import connectDB from "./config/db.js";
+import cors from 'cors'
 
 // Load .env variables
 dotenv.config();
@@ -18,6 +19,18 @@ const app = express();
 
 // Middleware to parse JSON request
 app.use(express.json());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
+  allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      'Cache-Control',
+      'Expires',
+      'Pragma'
+  ],
+  credentials: true
+}))
 
 // serve static HTML files from /public
 app.use(express.static(join(dirName, "public")));
