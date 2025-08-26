@@ -1,14 +1,22 @@
-import Student from "../model/studentSchema.js";
+import Student from "../../model/studentSchema.js";
 
-// Get all students (Admin-only access)
+// Get users depending on role
 export const getStudents = async (req, res) => {
-  if (req.student.role !== "admin") {
-    return res.status(403).json({ message: "Access denied. Admins only." });
-  }
   try {
-    // Exclude passwords from the response
-    const students = await Student.find().select("-password");
-    res.json(students);
+    if (req.superAdmin) {
+      // SuperAdmin: return students
+      const students = await Student.find().select("-password");
+      return res.json({ students });
+    }
+
+    if (req.admin) {
+      // Admin: return only students
+      const students = await Student.find().select("-password");
+      return res.json(students);
+    }
+
+    // Otherwise deny
+    return res.status(403).json({ message: "Access denied." });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -21,10 +29,7 @@ export const getStudentById = async (req, res) => {
       return res.status(404).json({ message: "Student not found" });
     }
     // Check if the user is an admin or is requesting their own profile
-    if (
-      req.student.role !== "admin" &&
-      req.student._id.toString() !== student._id.toString()
-    ) {
+    if (req.admin && req.superAdmin && req.student) {
       return res.status(403).json({
         message: "Access denied. You can only view your own profile.",
       });
@@ -38,12 +43,9 @@ export const getStudentById = async (req, res) => {
 // Update a student by ID
 export const updateStudent = async (req, res) => {
   try {
-    let studentIdToUpdate = req.params.id;
+    const studentIdToUpdate = req.params.id;
     // Ensure non-admins can only update their own profile
-    if (
-      req.student.role !== "admin" &&
-      req.student._id.toString() !== studentIdToUpdate
-    ) {
+    if (req.admin && req.superAdmin && req.student) {
       return res.status(403).json({
         message: "Access denied. You can only update your own profile.",
       });
@@ -65,12 +67,9 @@ export const updateStudent = async (req, res) => {
 // Delete a student by ID
 export const deleteStudent = async (req, res) => {
   try {
-    let studentIdToDelete = req.params.id;
+    const studentIdToDelete = req.params.id;
     // Ensure non-admins can only delete their own profile
-    if (
-      req.student.role !== "admin" &&
-      req.student._id.toString() !== studentIdToDelete
-    ) {
+    if (req.admin && req.superAdmin && req.student) {
       return res.status(403).json({
         message: "Access denied. You can only delete your own profile.",
       });
