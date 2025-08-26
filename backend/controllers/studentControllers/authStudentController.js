@@ -49,10 +49,12 @@ export const loginStudent = async (req, res) => {
     const student = await Student.findOne({ email });
     if (student && (await bcrypt.compare(password, student.password))) {
       res.status(200).json({
-        _id: student._id,
-        email: student.email,
-        role: student.role,
         token: generateToken(student._id),
+        user: {
+          _id: student._id,
+          email: student.email,
+          role: student.role,
+        },
       });
     } else {
       res.status(400).json({ message: "Invalid credentials" });

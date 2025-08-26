@@ -49,10 +49,12 @@ export const loginsuperadmin = async (req, res) => {
     const superadmin = await SuperAdmin.findOne({ email });
     if (superadmin && (await bcrypt.compare(password, superadmin.password))) {
       res.status(200).json({
-        _id: superadmin._id,
-        email: superadmin.email,
-        role: superadmin.role,
         token: generateToken(superadmin._id),
+        user: {
+          _id: superadmin._id,
+          email: superadmin.email,
+          role: superadmin.role,
+        },
       });
     } else {
       res.status(400).json({ message: "Invalid credentials" });
