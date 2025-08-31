@@ -32,10 +32,12 @@ export const registerAdmin = async (req, res) => {
     await admin.save();
 
     res.status(201).json({
-      _id: admin._id,
-      email: admin.email,
-      role: admin.role,
       token: generateToken(admin._id),
+      user: {
+        _id: admin._id,
+        email: admin.email,
+        role: admin.role,
+      },
     });
   } catch (error) {
     res.status(400).json({ error: error.message });

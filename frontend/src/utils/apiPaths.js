@@ -5,8 +5,15 @@ export const API_PATHS = {
         LOGIN: `${BASE_URL}/login`,
         REGISTER: `${BASE_URL}/register`,
         LOGINASADMIN: `${BASE_URL}/loginadmin`,
-        REGISTERASADMIN: "/registeradmin",
-        LOGINASSUPERADMIN: "loginsuperadmin",
-        REGISTERASSUPERADMIN: "/registersuperadmin"
+        REGISTERASADMIN: `${BASE_URL}/registeradmin`,
+        LOGINASSUPERADMIN: `${BASE_URL}/loginsuperadmin`,
+        REGISTERASSUPERADMIN: `${BASE_URL}/registersuperadmin`
+    },
+    STUDENTS: {
+        FETCHALLSTUDENTS: `${BASE_URL}/students`,
+        EDITSTUDENTSBYID: `${BASE_URL}/students`,
+        EDITADMINSBYID: `${BASE_URL}/admins`,
+        EDITSUPERADMINSBYID: `${BASE_URL}/superadmins`
+        
     }
 }

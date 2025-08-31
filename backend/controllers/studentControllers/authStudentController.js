@@ -32,10 +32,12 @@ export const registerStudent = async (req, res) => {
     await student.save();
 
     res.status(201).json({
-      _id: student._id,
-      email: student.email,
-      role: student.role,
       token: generateToken(student._id),
+      user: {
+        _id: student._id,
+        email: student.email,
+        role: student.role,
+      },
     });
   } catch (error) {
     res.status(400).json({ error: error.message });

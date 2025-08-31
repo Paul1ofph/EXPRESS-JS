@@ -3,37 +3,37 @@ import React, { createContext, useState, useEffect } from "react";
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  // Load user from localStorage on first render
-  const [user, setUser] = useState(() => {
-    const storedUser = localStorage.getItem("user");
-    return storedUser ? JSON.parse(storedUser) : null;
-  });
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Update localStorage whenever user changes
   useEffect(() => {
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-    } else {
-      localStorage.removeItem("user");
+    // Load user from localStorage on first render
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
     }
-  }, [user]);
+    setLoading(false);
+  }, []);
 
-  // Function to update user data
-  const updateUser = (userData) => {
-    setUser(userData);
+  const updateUser = (updatedData) => {
+    setUser((prev) => {
+      const newUser = { ...prev, ...updatedData };
+      localStorage.setItem("user", JSON.stringify(newUser)); // ✅ keep localStorage updated
+      return newUser;
+    });
   };
-
+  
   // Function to clear user data (e.g., on logout)
   const clearUser = () => {
     setUser(null);
     localStorage.removeItem("user");
-    localStorage.removeItem("token");
   };
 
   return (
     <UserContext.Provider
       value={{
         user,
+        loading,
         updateUser,
         clearUser,
       }}

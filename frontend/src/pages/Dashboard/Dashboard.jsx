@@ -1,25 +1,20 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../context/UserContext'
-import UserDetailsCard from '../../components/Cards/UserDetailsCard'
+import React, { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+import UserDetailsCard from "../../components/Cards/UserDetailsCard";
+import { useNavigate } from "react-router-dom";
+import DashBoardLayouot from "../../components/Layout/DashBoardLayouot";
 
 const Dashboard = () => {
-    const { user } = useContext(UserContext);
-    console.log("Dashboard user:", user);
-  return (
-    <div>
-        <h1>Dashboard</h1>
-        {user && (
-            <div>
-                User Details
-                <UserDetailsCard
-                email={user && user.email}
-                role={user && user.role}
-                />
-            </div>
-        )}
-        <h2>Hello {user.email}</h2>
-    </div>
-  )
-}
+  const { user, clearUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
-export default Dashboard
+  return (
+    <DashBoardLayouot>
+      <h1>Dashboard</h1>
+
+      <h2>Welcome {user?.email}</h2>
+    </DashBoardLayouot>
+  );
+};
+
+export default Dashboard;

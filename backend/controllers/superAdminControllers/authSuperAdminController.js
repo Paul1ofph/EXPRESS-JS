@@ -32,10 +32,12 @@ export const registerSuperAdmin = async (req, res) => {
     await superadmin.save();
 
     res.status(201).json({
-      _id: superadmin._id,
-      email: superadmin.email,
-      role: superadmin.role,
       token: generateToken(superadmin._id),
+      user: {
+        _id: superadmin._id,
+        email: superadmin.email,
+        role: superadmin.role,
+      },
     });
   } catch (error) {
     res.status(400).json({ error: error.message });
