@@ -86,7 +86,7 @@ const AllStudentsCard = ({ limit }) => {
   const displayStudents = limit ? fetchStudents.slice(0, limit) : fetchStudents;
 
   return (
-    <div className="-ml-2 overflow-x-auto">
+    <div className="-ml-3 overflow-x-auto">
       {loading ? (
         <p>Loading students...</p>
       ) : error ? (
@@ -140,7 +140,7 @@ const AllStudentsCard = ({ limit }) => {
                           </button>
                         </div>
                       ) : (
-                        <div className="space-x-2">
+                        <div className="flex flex-wrap gap-1">
                           <button
                             onClick={() => handleEditClick(student)}
                             className="bg-blue-500 text-white px-2 py-1 rounded"
