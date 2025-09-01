@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../../context/UserContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_PATHS } from "../../../utils/apiPaths";
 import AuthInput from "../../../components/input/AuthInput";
@@ -47,28 +47,41 @@ const Login = () => {
     }
   };
   return (
-    <form onSubmit={handleLogin}>
-      <h1>Login</h1>
-      <AuthInput
-        value={email}
-        onChange={({ target }) => setEmail(target.value)}
-        label="Email Address"
-        placeholder="youreemail@example.com"
-        type="text"
-      />
+    <div className="p-5">
+      <form onSubmit={handleLogin}>
+        <h1 className="text-2xl text-center font-bold cursor-default" onClick={() => navigate("/")}>Login</h1>
+        <AuthInput
+          value={email}
+          onChange={({ target }) => setEmail(target.value)}
+          label="Email Address"
+          placeholder="youreemail@example.com"
+          type="text"
+        />
 
-      <AuthInput
-        value={password}
-        onChange={({ target }) => setPassword(target.value)}
-        label="Password"
-        placeholder="Min 8 Characters"
-        type="password"
-      />
+        <AuthInput
+          value={password}
+          onChange={({ target }) => setPassword(target.value)}
+          label="Password"
+          placeholder="Min 8 Characters"
+          type="password"
+        />
 
-      {error && <p>{error}</p>}
+        {error && <p>{error}</p>}
 
-      <button type="submit">Login</button>
-    </form>
+        <button
+          type="submit"
+          className="w-full text-sm font-medium bg-black text-white shadow-lg p-[10px] rounded-md my-1 hover:bg-black/80"
+        >
+          Login
+        </button>
+        <p className="text-[16px] text-slate-800 mt-3">
+          Don't have an account?{" "}
+          <Link className="font-medium text-primary underline" to="/register">
+            Register
+          </Link>
+        </p>
+      </form>
+    </div>
   );
 };
 

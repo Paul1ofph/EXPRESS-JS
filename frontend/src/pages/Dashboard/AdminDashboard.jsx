@@ -14,7 +14,7 @@ const AdminDashboard = () => {
   return (
     <div>
       <DashBoardLayouot>
-        <h2>Welcome {user?.email}</h2>
+        <h2 className="font-epunda text-xl mt-2 mb-4">Welcome {user?.email}</h2>
         <AllStudentsCard limit={3}/>
       </DashBoardLayouot>
     </div>

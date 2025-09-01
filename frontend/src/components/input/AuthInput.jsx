@@ -10,9 +10,9 @@ const AuthInput = ({ value, onChange, label, placeholder, type }) => {
 
   return (
     <div>
-      <label className="text-[13px] text-slate-800">{label}</label>
+      <label className="text-[18px] text-slate-800">{label}</label>
 
-      <div className="input-box">
+      <div className="w-full flex justify-between gap-3 text-sm text-black bg-slate-100 rounded px-4 py-3 mb-4 mt-3 border border-slate-200 outline-none">
         <input
           type={
             type == "password" ? (showPassword ? "text" : "password") : "text"

@@ -5,7 +5,7 @@ import DashBoardLayouot from "../../components/Layout/DashBoardLayouot";
 const AllStudents = () => {
   return (
     <DashBoardLayouot>
-        <h1>All Students</h1>
+        <h1 className="font-epunda text-xl mt-2 mb-3">All Students</h1>
       <AllStudentsCard />
     </DashBoardLayouot>
   );

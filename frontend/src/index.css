@@ -1,1 +1,8 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+
+@layer utilities {
+    .font-epunda {
+      font-family: 'Epunda Slab', serif;
+    }
+  }

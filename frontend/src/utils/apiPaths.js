@@ -13,7 +13,9 @@ export const API_PATHS = {
         FETCHALLSTUDENTS: `${BASE_URL}/students`,
         EDITSTUDENTSBYID: `${BASE_URL}/students`,
         EDITADMINSBYID: `${BASE_URL}/admins`,
-        EDITSUPERADMINSBYID: `${BASE_URL}/superadmins`
-        
+        EDITSUPERADMINSBYID: `${BASE_URL}/superadmins`,
+        DELETESTUDENT: `${BASE_URL}/students`,
+        DELETEADMIN: `${BASE_URL}/admins`,
+        DELETESUPERADMIN: `${BASE_URL}/superadmins`,
     }
 }

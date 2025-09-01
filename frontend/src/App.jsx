@@ -8,16 +8,15 @@ import AdminDashboard from "./pages/Dashboard/AdminDashboard";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import UserDetails from "./pages/DetailsPage/UserDetails";
 import AllStudents from "./pages/DetailsPage/AllStudents";
+import HomePage from "./pages/HomePage";
 function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<HomePage/>}/>
         {/* Student Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* Admin Routes */}
-        <Route path="/login/admin" element={<LoginAdmin />} />
-        <Route path="/register/admin" element={<RegisterAdmin />} />
         <Route
           path="/dashboard"
           element={
@@ -25,7 +24,10 @@ function App() {
               <Dashboard />
             </ProtectedRoutes>
           }
-        />
+        />        
+        {/* Admin Routes */}
+        <Route path="/login/admin" element={<LoginAdmin />} />
+        <Route path="/register/admin" element={<RegisterAdmin />} />
         <Route
           path="/dashboard/admin"
           element={

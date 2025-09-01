@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../../context/UserContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_PATHS } from "../../../utils/apiPaths";
 import AuthInput from "../../../components/input/AuthInput";
@@ -48,9 +48,9 @@ const Register = () => {
     }
   };
   return (
-    <div>
-      <h1>Register</h1>
+    <div className="p-5">
       <form onSubmit={handleSignUp}>
+        <h1 className="text-2xl text-center font-bold">Register</h1>
         <AuthInput
           value={email}
           onChange={({ target }) => setEmail(target.value)}
@@ -69,7 +69,18 @@ const Register = () => {
 
         {error && <p>{error}</p>}
 
-        <button type="submit">SignUp</button>
+        <button
+          type="submit"
+          className="w-full text-sm font-medium bg-black text-white shadow-lg p-[10px] rounded-md my-1 hover:bg-black/80"
+        >
+          SignUp
+        </button>
+        <p className="text-[16px] text-slate-800 mt-3">
+          Already have an account?{" "}
+          <Link className="font-medium text-primary underline" to="/login">
+            login
+          </Link>
+        </p>
       </form>
     </div>
   );
