@@ -1,5 +1,5 @@
 // controllers/authController.js
-import SuperAdmin from "../../model/superAdminSchema.js";
+import SuperAdmin from "../../model/superAdmin/superAdminSchema.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 

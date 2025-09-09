@@ -1,4 +1,4 @@
-import Admin from "../../model/adminSchema.js";
+import Admin from "../../model/admin/adminSchema.js";
 
 
 // Get an admin by ID

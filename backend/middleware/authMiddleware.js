@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import Student from "../model/studentSchema.js";
-import Admin from "../model/adminSchema.js";
-import SuperAdmin from "../model/superAdminSchema.js";
+import Student from "../model/student/studentSchema.js";
+import Admin from "../model/admin/adminSchema.js";
+import SuperAdmin from "../model/superAdmin/superAdminSchema.js";
 
 const protect = async (req, res, next) => {
   let token;

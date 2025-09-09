@@ -29,6 +29,7 @@ import {
   updateSuperAdminById,
 } from "../controllers/superAdminControllers/superAdminController.js";
 import { deleteAdmin, getAdminById, updateAdmin } from "../controllers/adminControllers/adminController.js";
+import { inputProducts } from "../controllers/ProductController/productController.js";
 
 const fileName = fileURLToPath(import.meta.url);
 const dirName = dirname(fileName);
@@ -67,6 +68,9 @@ pageRouter.delete("/students/:id", protect, deleteStudent);
 pageRouter.get("/admins/:id", protect, getAdminById);
 pageRouter.put("/admins/:id", protect, updateAdmin);
 pageRouter.delete("/admins/:id", protect, deleteAdmin);
+
+// Products routes
+pageRouter.post("/products", protect, inputProducts)
 
 
 export default pageRouter;

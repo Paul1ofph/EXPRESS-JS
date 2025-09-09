@@ -1,6 +1,6 @@
-import Admin from "../../model/adminSchema.js";
-import Student from "../../model/studentSchema.js";
-import SuperAdmin from "../../model/superAdminSchema.js";
+import Admin from "../../model/admin/adminSchema.js";
+import Student from "../../model/student/studentSchema.js";
+import SuperAdmin from "../../model/superAdmin/superAdminSchema.js";
 
 // Fetch both students and admins
 export const getAllUsers = async (req, res) => {

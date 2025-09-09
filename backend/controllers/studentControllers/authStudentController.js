@@ -1,5 +1,5 @@
 // controllers/authController.js
-import Student from "../../model/studentSchema.js";
+import Student from "../../model/student/studentSchema.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 

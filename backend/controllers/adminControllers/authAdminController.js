@@ -1,5 +1,5 @@
 // controllers/authController.js
-import Admin from "../../model/adminSchema.js";
+import Admin from "../../model/admin/adminSchema.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 

@@ -20,7 +20,7 @@ const app = express();
 // Middleware to parse JSON request
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost:5174',
   methods: ['GET', 'POST', 'DELETE', 'PUT'],
   allowedHeaders: [
       "Content-Type",

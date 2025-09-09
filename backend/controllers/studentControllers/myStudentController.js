@@ -1,4 +1,4 @@
-import Student from "../../model/studentSchema.js";
+import Student from "../../model/student/studentSchema.js";
 
 // Get users depending on role
 export const getStudents = async (req, res) => {
