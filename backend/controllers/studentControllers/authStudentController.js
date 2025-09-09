@@ -13,28 +13,30 @@ const generateToken = (id) => {
 // Controller function to handle student registration
 export const registerStudent = async (req, res) => {
   // Destructure email, password, and now the role from the request body
-  const { email, password, role } = req.body;
+  const {userName, email, password, role } = req.body;
 
   // Basic validation
-  if (!email || !password) {
+  if (!userName || !email || !password) {
     return res
       .status(400)
       .json({ message: "Please enter all required fields" });
   }
   const studentExists = await Student.findOne({ email });
-  if (studentExists) {
+  const userNameExists = await Student.findOne({ userName });
+  if (studentExists || userNameExists) {
     return res.status(400).json({ message: "Student already exists" });
   }
 
   try {
     // Pass the role to the Student constructor
-    const student = new Student({ email, password, role });
+    const student = new Student({userName, email, password, role });
     await student.save();
 
     res.status(201).json({
       token: generateToken(student._id),
       user: {
         _id: student._id,
+        userName: student.userName,
         email: student.email,
         role: student.role,
       },

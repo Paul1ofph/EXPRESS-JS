@@ -4,6 +4,11 @@ import bcrypt from "bcryptjs";
 // Define the blueprint of a Student Information
 const adminSchema = new mongoose.Schema(
   {
+    userName: {
+      type: String,
+      // Validation: must have a name
+      required: true, 
+    },
     email: {
       type: String,
       required: [true, "Email is required"],

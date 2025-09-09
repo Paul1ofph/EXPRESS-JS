@@ -13,28 +13,31 @@ const generateToken = (id) => {
 // Controller function to handle admin registration
 export const registerSuperAdmin = async (req, res) => {
   // Destructure email, password, and now the role from the request body
-  const { email, password, role } = req.body;
+  const {userName, email, password, role } = req.body;
 
   // Basic validation
-  if (!email || !password) {
+  if (!userName || !email || !password) {
     return res
       .status(400)
       .json({ message: "Please enter all required fields" });
   }
   const superadminExists = await SuperAdmin.findOne({ email });
-  if (superadminExists) {
+  const userNameExists = await SuperAdmin.findOne({ userName });
+
+  if (superadminExists || userNameExists) {
     return res.status(400).json({ message: "super admin already exists" });
   }
 
   try {
     // Pass the role to the admin constructor
-    const superadmin = new SuperAdmin({ email, password, role });
+    const superadmin = new SuperAdmin({userName, email, password, role });
     await superadmin.save();
 
     res.status(201).json({
       token: generateToken(superadmin._id),
       user: {
         _id: superadmin._id,
+        userName: superadmin.userName,
         email: superadmin.email,
         role: superadmin.role,
       },
