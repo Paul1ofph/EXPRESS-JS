@@ -5,13 +5,13 @@ import protect from "../middleware/authMiddleware.js";
 import {
   registerStudent,
   loginStudent,
-} from "../controllers/studentControllers/authStudentController.js";
+} from "../controllers/usersControllers/authStudentController.js";
 import {
   getStudents,
   getStudentById,
   updateStudent,
   deleteStudent,
-} from "../controllers/studentControllers/myStudentController.js";
+} from "../controllers/usersControllers/myStudentController.js";
 import {
   loginadmin,
   registerAdmin,
@@ -59,7 +59,7 @@ pageRouter.get("/superadmins", protect, getAllSuperAdmins);
 pageRouter.get("/superadmins/:id", protect, getSuperAdminById);
 pageRouter.put("/superadmins/:id", protect, updateSuperAdminById);
 pageRouter.delete("/superadmins/:id", protect, deleteSuperAdmin);
-// Student Routes
+// Student / User Routes
 pageRouter.get("/students", protect, getStudents);
 pageRouter.get("/students/:id", protect, getStudentById);
 pageRouter.put("/students/:id", protect, updateStudent);

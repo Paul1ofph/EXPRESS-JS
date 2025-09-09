@@ -1,5 +1,5 @@
 import Admin from "../../model/admin/adminSchema.js";
-import Student from "../../model/student/studentSchema.js";
+import Student from "../../model/users/studentSchema.js";
 import SuperAdmin from "../../model/superAdmin/superAdminSchema.js";
 
 // Fetch both students and admins
@@ -19,7 +19,6 @@ export const getAllUsers = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
 
 // Fetch only admins
 export const getAllAdmins = async (req, res) => {
@@ -56,7 +55,9 @@ export const getAllSuperAdmins = async (req, res) => {
 // Get a superadmin by ID
 export const getSuperAdminById = async (req, res) => {
   try {
-    const superadmin = await SuperAdmin.findById(req.params.id).select("-password");
+    const superadmin = await SuperAdmin.findById(req.params.id).select(
+      "-password"
+    );
     if (!superadmin) {
       return res.status(404).json({ message: "SuperAdmin not found" });
     }

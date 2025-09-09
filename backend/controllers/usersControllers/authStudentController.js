@@ -1,5 +1,5 @@
 // controllers/authController.js
-import Student from "../../model/student/studentSchema.js";
+import Student from "../../model/users/studentSchema.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -13,7 +13,7 @@ const generateToken = (id) => {
 // Controller function to handle student registration
 export const registerStudent = async (req, res) => {
   // Destructure email, password, and now the role from the request body
-  const {userName, email, password, role } = req.body;
+  const { userName, email, password, role } = req.body;
 
   // Basic validation
   if (!userName || !email || !password) {
@@ -29,7 +29,7 @@ export const registerStudent = async (req, res) => {
 
   try {
     // Pass the role to the Student constructor
-    const student = new Student({userName, email, password, role });
+    const student = new Student({ userName, email, password, role });
     await student.save();
 
     res.status(201).json({

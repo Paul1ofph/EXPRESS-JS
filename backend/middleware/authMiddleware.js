@@ -1,18 +1,23 @@
 import jwt from "jsonwebtoken";
-import Student from "../model/student/studentSchema.js";
+import Student from "../model/users/studentSchema.js";
 import Admin from "../model/admin/adminSchema.js";
 import SuperAdmin from "../model/superAdmin/superAdminSchema.js";
 
 const protect = async (req, res, next) => {
   let token;
 
-  if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
     try {
       token = req.headers.authorization.split(" ")[1];
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
       // Check SuperAdmin first
-      const superAdmin = await SuperAdmin.findById(decoded.id).select("-password");
+      const superAdmin = await SuperAdmin.findById(decoded.id).select(
+        "-password"
+      );
       if (superAdmin) {
         req.superAdmin = superAdmin;
         return next();
@@ -32,7 +37,9 @@ const protect = async (req, res, next) => {
         return next();
       }
 
-      return res.status(401).json({ message: "Not authorized, user not found" });
+      return res
+        .status(401)
+        .json({ message: "Not authorized, user not found" });
     } catch (error) {
       return res.status(401).json({ message: "Not authorized, token failed" });
     }
